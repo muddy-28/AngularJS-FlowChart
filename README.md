@@ -8,7 +8,7 @@ This isn't designed to be completely general purpose, but it will be a good basi
 Code Project Article
 --------------------
 
-http://www.codeproject.com/Articles/709340/Implementing-a-Flowchart-with-SVG-and-AngularJS
+http://muddy-28.github.io/AngularJS-FlowChart/
 
 
 How to use it

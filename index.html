@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Angularjs-flowchart by muddy-28</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Angularjs-flowchart</h1>
+        <h2>A WebUI control for visualizing and editing flow charts</h2>
+        <a href="https://github.com/muddy-28/AngularJS-FlowChart" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="angularjs-flowchart" class="anchor" href="#angularjs-flowchart" aria-hidden="true"><span class="octicon octicon-link"></span></a>AngularJS-FlowChart</h1>
+
+<p>A WebUI control for visualizing and editing flow charts.</p>
+
+<p>This isn't designed to be completely general purpose, but it will be a good basis if you need an SVG flowchart and you are willing to work with AngularJS.</p>
+
+<h2>
+<a id="code-project-article" class="anchor" href="#code-project-article" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code Project Article</h2>
+
+<p><a href="http://www.codeproject.com/Articles/709340/Implementing-a-Flowchart-with-SVG-and-AngularJS">http://www.codeproject.com/Articles/709340/Implementing-a-Flowchart-with-SVG-and-AngularJS</a></p>
+
+<h2>
+<a id="how-to-use-it" class="anchor" href="#how-to-use-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use it</h2>
+
+<p>Include the following Javascript in your HTML file:</p>
+
+<div class="highlight highlight-html"><pre><span class="pl-s2">    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>flowchart/svg_class.js<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s1"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
+<span class="pl-s2">    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>flowchart/mouse_capture_service.js<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s1"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
+<span class="pl-s2">    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>flowchart/dragging_service.js<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s1"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
+<span class="pl-s2">    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>flowchart/flowchart_viewmodel.js<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s1"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
+<span class="pl-s2">    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>flowchart/flowchart_directive.js<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s1"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span></pre></div>
+
+<p>Make a dependency on the the flowchart's AngularJS module from your application (or other module):</p>
+
+<div class="highlight highlight-javascript"><pre>    angular.module(<span class="pl-s1"><span class="pl-pds">'</span>app<span class="pl-pds">'</span></span>, [<span class="pl-s1"><span class="pl-pds">'</span>flowChart<span class="pl-pds">'</span></span>, ])</pre></div>
+
+<p>In your application (or other) controller setup a data-model for the initial flowchart (or AJAX the data-model in from a JSON resource):</p>
+
+<div class="highlight highlight-javascript"><pre>    <span class="pl-s">var</span> chartDataModel <span class="pl-k">=</span> {
+
+        nodes<span class="pl-k">:</span> [
+            {
+                name<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>Example Node 1<span class="pl-pds">"</span></span>,
+                id<span class="pl-k">:</span> <span class="pl-c1">0</span>,
+                x<span class="pl-k">:</span> <span class="pl-c1">0</span>,
+                y<span class="pl-k">:</span> <span class="pl-c1">0</span>,
+                inputConnectors<span class="pl-k">:</span> [
+                    {
+                        name<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>A<span class="pl-pds">"</span></span>,
+                    },
+                    {
+                        name<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>B<span class="pl-pds">"</span></span>,
+                    },
+                    {
+                        name<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>C<span class="pl-pds">"</span></span>,
+                    },
+                ],
+                outputConnectors<span class="pl-k">:</span> [
+                    {
+                        name<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>A<span class="pl-pds">"</span></span>,
+                    },
+                    {
+                        name<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>B<span class="pl-pds">"</span></span>,
+                    },
+                    {
+                        name<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>C<span class="pl-pds">"</span></span>,
+                    },
+                ],
+            },
+
+            {
+                name<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>Example Node 2<span class="pl-pds">"</span></span>,
+                id<span class="pl-k">:</span> <span class="pl-c1">1</span>,
+                x<span class="pl-k">:</span> <span class="pl-c1">400</span>,
+                y<span class="pl-k">:</span> <span class="pl-c1">200</span>,
+                inputConnectors<span class="pl-k">:</span> [
+                    {
+                        name<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>A<span class="pl-pds">"</span></span>,
+                    },
+                    {
+                        name<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>B<span class="pl-pds">"</span></span>,
+                    },
+                    {
+                        name<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>C<span class="pl-pds">"</span></span>,
+                    },
+                ],
+                outputConnectors<span class="pl-k">:</span> [
+                    {
+                        name<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>A<span class="pl-pds">"</span></span>,
+                    },
+                    {
+                        name<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>B<span class="pl-pds">"</span></span>,
+                    },
+                    {
+                        name<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>C<span class="pl-pds">"</span></span>,
+                    },
+                ],
+            },
+
+        ],
+
+        connections<span class="pl-k">:</span> [
+            {
+                source<span class="pl-k">:</span> {
+                    nodeID<span class="pl-k">:</span> <span class="pl-c1">0</span>,
+                    connectorIndex<span class="pl-k">:</span> <span class="pl-c1">1</span>,
+                },
+
+                dest<span class="pl-k">:</span> {
+                    nodeID<span class="pl-k">:</span> <span class="pl-c1">1</span>,
+                    connectorIndex<span class="pl-k">:</span> <span class="pl-c1">2</span>,
+                },
+            },
+
+
+        ]
+    };</pre></div>
+
+<p>Also in your controller, wrap the data-model in a view-model and add it to the AngularJS scope:</p>
+
+<div class="highlight highlight-javascript"><pre>    $scope.chartViewModel <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">flowchart.ChartViewModel</span>(chartDataModel);</pre></div>
+
+<p>Your code is in direct control of creation of the view-model, so you can interact with it in almost anyway you want.</p>
+
+<p>Finally instantiate the flowchart's AngularJS directive in your HTML:</p>
+
+<div class="highlight highlight-html"><pre>    &lt;<span class="pl-ent">flow</span><span class="pl-e">-chart</span>
+        <span class="pl-e">style</span>=<span class="pl-s1"><span class="pl-pds">"</span>margin: 5px; width: 100%; height: 100%;<span class="pl-pds">"</span></span>
+        <span class="pl-e">chart</span>=<span class="pl-s1"><span class="pl-pds">"</span>chartViewModel<span class="pl-pds">"</span></span>
+        &gt;
+    &lt;/<span class="pl-ent">flow</span><span class="pl-e">-chart</span>&gt;</pre></div>
+
+<p>Be sure to bind your view-model as the 'chart' attribute!</p>
+
+<p>Have fun and please contribute!</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/muddy-28/AngularJS-FlowChart/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/muddy-28/AngularJS-FlowChart/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/muddy-28/AngularJS-FlowChart"></a> is maintained by <a href="https://github.com/muddy-28">muddy-28</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>

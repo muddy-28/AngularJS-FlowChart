@@ -61,10 +61,10 @@ angular.module('app', ['flowChart', ])
 
 		nodes: [
 			{
-				name: "Example Node 1",
+				name: "Node 1",
 				id: 0,
-				x: 0,
-				y: 0,
+				x: 50,
+				y: 400,
 				width: 350,
 				inputConnectors: [
 					{
@@ -91,7 +91,7 @@ angular.module('app', ['flowChart', ])
 			},
 
 			{
-				name: "Example Node 2",
+				name: "Node 2",
 				id: 1,
 				x: 400,
 				y: 200,
@@ -188,7 +188,7 @@ angular.module('app', ['flowChart', ])
 	//
 	$scope.addNewNode = function () {
 
-		var nodeName = prompt("Enter a node name:", "New node");
+		var nodeName = prompt("Enter a node name:", "New mad node");
 		if (!nodeName) {
 			return;
 		}

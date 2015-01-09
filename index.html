@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <meta name="description" content="Angularjs-flowchart : A WebUI control for visualizing and editing flow charts">
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Angularjs-flowchart by muddy-28</title>
+    <title>Angularjs-flowchart</title>
   </head>
 
   <body>
-    <header>
-      <div class="inner">
-        <h1>Angularjs-flowchart</h1>
-        <h2>A WebUI control for visualizing and editing flow charts</h2>
-        <a href="https://github.com/muddy-28/AngularJS-FlowChart" class="button"><small>View project on</small> GitHub</a>
-      </div>
-    </header>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h2>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/muddy-28/AngularJS-FlowChart">View on GitHub</a>
+
+          <h1 id="project_title">Angularjs-flowchart</h1>
+          <h2 id="project_tagline">A WebUI control for visualizing and editing flow charts</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/muddy-28/AngularJS-FlowChart/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/muddy-28/AngularJS-FlowChart/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>
 <a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="Overview">Overview</a>
 </h2>
 
@@ -102,7 +105,7 @@ data-model. On the right is the graphical representation of the
 flowchart's view-model. Editing either side (left as text, right
 visually) updates the other, they automatically stay in sync.</p>
 
-<p><img alt="" src="/KB/scripting/709340/Screenshot.png"></p>
+<p><img alt="Adnan Shafique" src="http://www.codeproject.com/KB/scripting/709340/Screenshot.png"></p>
 
 
 
@@ -344,7 +347,7 @@ worked with WPF).</p>
 
 <p>How does AngularJS fit in with MVVM? I'm glad you asked. It looks like this:</p>
 
-<p><img alt="" src="/KB/scripting/709340/MVVM-AngularJS.png"></p>
+<p><img alt="" src="http://www.codeproject.com/KB/scripting/709340/MVVM-AngularJS.png"></p>
 
 <p>The <em>controller</em> sets up a <em>scope</em>. The scope contains variables that are data-bound to the <em>HTML view</em>. In the flowchart application the scope contains a reference to the <em>flowchart's</em> <a href="http://en.wikipedia.org/wiki/View_model">view-model</a>, which in-turn wraps up the <em>flowchart's</em> <a href="http://en.wikipedia.org/wiki/Data_model">data-model</a>.</p>
 
@@ -467,17 +470,17 @@ the flowchart view-model. We will mostly be looking at <em>index.html </em>and <
 <p>The following diagram shows the <a href="http://docs.angularjs.org/guide/module">AngularJS modules</a> in the application and the dependencies between them:</p>
 
 
-<p><img alt="" src="/KB/scripting/709340/AngularJS-modules.png"></p>
+<p><img alt="" src="http://www.codeproject.com/KB/scripting/709340/AngularJS-modules.png"></p>
 
 
 <p>The next diagram overviews the files in the project:</p>
 
-<p><img alt="" src="/KB/scripting/709340/Project-Files.png"></p>
+<p><img alt="" src="http://www.codeproject.com/KB/scripting/709340/Project-Files.png"></p>
 
 
 <p>And drilling down into the <em>flowchart</em> directory:</p>
 
-<p><img alt="" src="/KB/scripting/709340/Flowchart-Files.png"></p>
+<p><img alt="" src="http://www.codeproject.com/KB/scripting/709340/Flowchart-Files.png"></p>
 
 <h3>
 <a id="application-setup" class="anchor" href="#application-setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Application Setup</h3>
@@ -589,7 +592,7 @@ that are accessible from HTML/SVG via data-binding. In
 this case we are binding <em>chartViewModel</em> to the <em>chart</em> attribute as illustrated by the following diagram:<br>
 
 
-<p><img alt="" src="/KB/scripting/709340/Chart-attribute-data-binding.png"></p>
+<p><img alt="" src="http://www.codeproject.com/KB/scripting/709340/Chart-attribute-data-binding.png"></p>
 
 
 
@@ -755,7 +758,7 @@ directive and mimics the structure of the data-model. The application
 is then put in direct control of that
 view-model so it can be manipulated directly.</p><p>The following diagram indicates the dependencies between the application and the flowchart components:</p>
 
-<p><img alt="" src="/KB/scripting/709340/Application_-directive-and-VM.png"></p>
+<p><img alt="" src="http://www.codeproject.com/KB/scripting/709340/Application_-directive-and-VM.png"></p>
 
 <p>As an example of how the application interacts with the view-model we will look at the previously mentioned delete selected feature, that allows deletion of flowchart items. <a href="http://docs.angularjs.org/api/ng.directive:ngKeyup">ng-keyup</a> is handled for the body element:</p>
 
@@ -847,12 +850,12 @@ article. Please take a look at the <a href="http://www.codeproject.com/Articles/
 
 <p>Here is the definition of a single node as defined in <em>app.js</em>:</p>
 
-<p><img src="/KB/scripting/709340/Node-data-model.png"></p>
+<p><img src="http://www.codeproject.com/KB/scripting/709340/Node-data-model.png"></p>
 
 
 <p>Here is the definition of a single connection:</p>
 
-<p><img src="/KB/scripting/709340/Connection-data-model.png"></p>
+<p><img src="http://www.codeproject.com/KB/scripting/709340/Connection-data-model.png"></p>
 
 
 <p>Connections in the data-model reference their attached nodes by IDs.  Connectors are referenced by
@@ -878,7 +881,7 @@ in the flowchart.</p>
 <p>The flowchart directive controls and coordinates the other components as shown in the following diagram:</p>
 
 
-<p><img alt="" src="/KB/scripting/709340/Flowchart-internals.png"></p>
+<p><img alt="" src="http://www.codeproject.com/KB/scripting/709340/Flowchart-internals.png"></p>
 
 <p>The flowchart directive and controller are defined in <em>flowchart_directive.js</em> under the <em>flowchart</em> directory. The first line defines the AngularJS module:</p>
 
@@ -979,7 +982,7 @@ replace: true,</pre>
 
 <p>This causes the template to be injected into the DOM in place of the <em>flowchart</em> element:</p>
 
-<p><img alt="" src="/KB/scripting/709340/Template-replacement.png"></p>
+<p><img alt="" src="http://www.codeproject.com/KB/scripting/709340/Template-replacement.png"></p>
 
 <p>Next, an <a href="http://umur.io/angularjs-directives-using-isolated-scope-with-attributes/">isolated scope</a> is setup:</p>
 
@@ -1101,7 +1104,7 @@ can be instantiated without a DOM.</p>
 
 <p>The controller is registered with the name <em>FlowChartController</em>, which is the name used to reference the controller from the directive:</p>
 
-<p><img alt="" src="/KB/scripting/709340/Directive_references_controller.png"></p>
+<p><img alt="" src="http://www.codeproject.com/KB/scripting/709340/Directive_references_controller.png"></p>
 
 
 <p>The controller parameters are automaticatically created and <a href="http://en.wikipedia.org/wiki/Dependency_injection">dependency injected</a> by AngularJS when the controller is instantiated. As we saw with the application
@@ -1288,7 +1291,7 @@ view-model of the parent node:</p>
 
 <p>The following diagram illustrates how the view-model wraps the data-model:</p>
 
-<p><img alt="" src="/KB/scripting/709340/VM-wraps-data-model.png"></p>
+<p><img alt="" src="http://www.codeproject.com/KB/scripting/709340/VM-wraps-data-model.png"></p>
 
 
 <p>In summary, the flowchart view-model wraps up numerous functions for
@@ -1412,12 +1415,12 @@ its SVG template.</p>
 
 <p>The <em>ng-repeat</em>:</p>
 
-<p><img alt="" src="/KB/scripting/709340/Node-template.png"></p>
+<p><img alt="" src="http://www.codeproject.com/KB/scripting/709340/Node-template.png"></p>
 
 
 <p>Node background and name:</p>
 
-<p><img alt="" src="/KB/scripting/709340/Node-template-2.png"></p>
+<p><img alt="" src="http://www.codeproject.com/KB/scripting/709340/Node-template-2.png"></p>
 
 <h4>
 <a id="representing-connectors" class="anchor" href="#representing-connectors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Representing connectors</h4>
@@ -1467,11 +1470,11 @@ its SVG template.</p>
 
 <p>The following diagram shows how the rendered connectors relate to the SVG template. First the <em>ng-repeat</em>:</p>
 
-<p><img alt="" src="/KB/scripting/709340/Connector-template.png"></p>
+<p><img alt="" src="http://www.codeproject.com/KB/scripting/709340/Connector-template.png"></p>
 
 <p>And the content of each connector:</p>
 
-<p><img alt="" src="/KB/scripting/709340/Connector-template-2.png"></p>
+<p><img alt="" src="http://www.codeproject.com/KB/scripting/709340/Connector-template-2.png"></p>
 
 
 
@@ -1518,12 +1521,12 @@ source-end only:</p>
 
 <p>The <em>ng-repeat</em>:</p>
 
-<p><img alt="" src="/KB/scripting/709340/Connection-template.png"></p>
+<p><img alt="" src="http://www.codeproject.com/KB/scripting/709340/Connection-template.png"></p>
 
 
 <p>The content of a connection:</p>
 
-<p><img alt="" src="/KB/scripting/709340/Connection-template-2.png"></p>
+<p><img alt="" src="http://www.codeproject.com/KB/scripting/709340/Connection-template-2.png"></p>
 
 <h3>
 <a id="ui-features" class="anchor" href="#ui-features" aria-hidden="true"><span class="octicon octicon-link"></span></a>UI Features</h3>
@@ -1582,7 +1585,7 @@ a class defined in <em>app.css</em>, and modifies the node's visual to indicate 
 
 <p>The same technique is also used to conditionally set the class of connections.</p>
 
-<p><img alt="" src="/KB/scripting/709340/Selected-node.png"></p>
+<p><img alt="" src="http://www.codeproject.com/KB/scripting/709340/Selected-node.png"></p>
 
 
 <h4>
@@ -1590,7 +1593,7 @@ a class defined in <em>app.css</em>, and modifies the node's visual to indicate 
 <p>Nodes and connections can also be selected by dragging out a selection rectangle to contain the items 
 to be selected:</p>
 
-<p><img alt="" src="/KB/scripting/709340/Drag_selection.png"></p>
+<p><img alt="" src="http://www.codeproject.com/KB/scripting/709340/Drag_selection.png"></p>
 <p>Drag selection is handled at multiple levels:</p>
 
 <ul>
@@ -1796,7 +1799,7 @@ selection rectangle and is needed to visually display the selection rect.</p>
 
 <p>The rect is positioned by the <em>ng-attr-</em> atttributes that set its coordinates and size:</p>
 
-<p><img alt="" src="/KB/scripting/709340/Selection-rect.png"></p>
+<p><img alt="" src="http://www.codeproject.com/KB/scripting/709340/Selection-rect.png"></p>
 
 
 <h4>
@@ -2027,7 +2030,7 @@ please let me know and I'll update the article!</p>
 few simple rules to determine which nodes and connectors to delete and
 which ones to keep, as illustrated in the following diagram:</p>
 
-<p><img alt="" src="/KB/scripting/709340/Selected_items_to_be_deleted.png"></p>
+<p><img alt="" src="http://www.codeproject.com/KB/scripting/709340/Selected_items_to_be_deleted.png"></p>
 
 
 <p><em>deleteSelected</em> has three main parts:</p>
@@ -3271,25 +3274,18 @@ leave you with some ideas for the future and links to useful resources.</p>
 
                     &lt;/div&gt;
 </code></pre>
-        </section>
-
-        <aside id="sidebar">
-          <a href="https://github.com/muddy-28/AngularJS-FlowChart/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/muddy-28/AngularJS-FlowChart/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
-
-          <p class="repo-owner"><a href="https://github.com/muddy-28/AngularJS-FlowChart"></a> is maintained by <a href="https://github.com/muddy-28">muddy-28</a>.</p>
-
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
+      </section>
     </div>
 
-  
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Angularjs-flowchart maintained by <a href="https://github.com/muddy-28">muddy-28</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
   </body>
 </html>
